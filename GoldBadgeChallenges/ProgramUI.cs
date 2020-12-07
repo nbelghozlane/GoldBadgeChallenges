@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Challenge1_Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace GoldBadgeChallenges
 {
     class ProgramUI
     {
+        private MenuRepository _menuRepo = new MenuRepository();
         //private MenuRepositoryClass _menuRepo = new MenuRepositoryClass
         public void Run()
         {
@@ -60,15 +62,30 @@ namespace GoldBadgeChallenges
 
         private void CreateNewMenuItem()
         {
+            MenuClass newMenuItem = new MenuClass();
+
             //MealNumber
+            Console.WriteLine("Enter the meal number you'd like to assign to the menu item:");
+            newMenuItem.MealNumber = Console.ReadLine();
 
             //MealName
+            Console.WriteLine("Enter the meal name:");
+            newMenuItem.MealName = Console.ReadLine();
 
             //MealDescription
+            Console.WriteLine("Enter a description of the meal:");
+            newMenuItem.MealDescription = Console.ReadLine();
 
             //Ingredients
+            Console.WriteLine("Enter the ingredients in the meal (seperate each ingredient with a comma):");
+            newMenuItem.Ingredients = Console.ReadLine();
 
             //Price
+            Console.WriteLine("Enter the price of the meal (enter in decimal format, example: 1.99):");
+            string priceAsString = Console.ReadLine();
+            newMenuItem.Price = double.Parse(priceAsString);
+
+            _menuRepo.CreateMenuItems(newMenuItem);
         }
 
         private void ViewAllMenuItems()
