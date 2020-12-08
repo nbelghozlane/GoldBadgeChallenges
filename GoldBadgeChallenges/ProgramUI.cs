@@ -62,6 +62,7 @@ namespace GoldBadgeChallenges
 
         private void CreateNewMenuItem()
         {
+            Console.Clear();
             MenuClass newMenuItem = new MenuClass();
 
             //MealNumber
@@ -127,7 +128,17 @@ namespace GoldBadgeChallenges
 
         private void SeedMenuList()
         {
-            
+            MenuClass cheeseburger = new MenuClass("1", "Plain Cheeseburger", "Beef patty with cheese on a bun", "Beef patty, American cheese, & hamburger bun", 3.00);
+            MenuClass loadedCheeseburger = new MenuClass("2", "Loaded Cheeseburger", "Beef patty on a bun with cheese and all classic toppings", "Beef patty, American cheese, " +
+                "lettuce, tomato, onion, pickle, ketchup, mustard, mayo, & hamburger bun", 5.50);
+            MenuClass extraLoadedCheeseburger = new MenuClass("3", "Extra Loaded Cheeseburger", "Includes everything that's on the loaded cheeseburger plus bacon, " +
+                "avocado, & extra cheese", "Beef patty, 2 slices of American cheese, bacon, avocado, lettuce, tomato, onion, pickle, ketchup, mustard, mayo, & hamburger bun", 7.50);
+            MenuClass frenchFries = new MenuClass("4", "French Fries", "Classic french fries (medium portion size)", "French fries & salt", 2.25);
+
+            _menuRepo.CreateMenuItems(cheeseburger);
+            _menuRepo.CreateMenuItems(loadedCheeseburger);
+            _menuRepo.CreateMenuItems(extraLoadedCheeseburger);
+            _menuRepo.CreateMenuItems(frenchFries);
         }
 
     }

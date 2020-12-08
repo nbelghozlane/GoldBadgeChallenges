@@ -5,3 +5,6 @@ C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\o
 C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\obj\Debug\Challenge1_Console.csproj.CoreCompileInputs.cache
 C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\obj\Debug\GoldBadgeChallenges.exe
 C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\obj\Debug\GoldBadgeChallenges.pdb
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\bin\Debug\Challenge1_Repository.dll
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\bin\Debug\Challenge1_Repository.pdb
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\GoldBadgeChallenges\obj\Debug\Challenge1_Console.csproj.CopyComplete
