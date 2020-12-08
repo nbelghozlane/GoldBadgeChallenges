@@ -9,7 +9,7 @@ namespace GoldBadgeChallenges
 {
     class ProgramUI
     {
-        private MenuRepository _menuRepo = new MenuRepository();
+        private MenuRepositoryClass _menuRepo = new MenuRepositoryClass();
         //private MenuRepositoryClass _menuRepo = new MenuRepositoryClass
         public void Run()
         {
@@ -90,17 +90,44 @@ namespace GoldBadgeChallenges
 
         private void ViewAllMenuItems()
         {
+            Console.Clear();
 
+            List<MenuClass> menuItems = _menuRepo.GetMenuList();
+
+            foreach(MenuClass menuItem in menuItems)
+            {
+                Console.WriteLine($"Meal Number: {menuItem.MealNumber}\n" +
+                    $"Meal Name: {menuItem.MealName}\n" +
+                    $"Description: {menuItem.MealDescription}\n" +
+                    $"Ingredients: {menuItem.Ingredients}\n" +
+                    $"Price: {menuItem.Price}\n" +
+                    $" ");
+            }
         }
 
         private void DeleteMenuItem()
         {
+            ViewAllMenuItems();
+
+            Console.WriteLine("Enter the name of the menu item you'd like to delete:");
+
+            string UserInput = Console.ReadLine();
+
+            bool itemWasDeleted = _menuRepo.DeleteMenuItems(UserInput);
+            if (itemWasDeleted)
+            {
+                Console.WriteLine("The menu item has been successfully deleted!");
+            }
+            else
+            {
+                Console.WriteLine("The menu item could not be deleted. Please try again.");
+            }
 
         }
 
         private void SeedMenuList()
         {
-
+            
         }
 
     }
