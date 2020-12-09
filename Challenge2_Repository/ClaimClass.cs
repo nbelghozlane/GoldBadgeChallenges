@@ -20,7 +20,7 @@ namespace Challenge2_Repository
         public string ClaimAmount { get; set; }
         public string DateOfIncident { get; set; }
         public string DateOfClaim { get; set; }
-        public bool IsValid { get; set; }
+        public bool IsValid { get; set; } // calculate with TimeSpan
 
         public ClaimClass() { }
 

@@ -22,8 +22,8 @@ namespace Challenge2_Repository
             return _listOfClaims;
         }
 
-        //Update?
+        //Update
 
-        //Delete?
+        //Delete
     }
 }

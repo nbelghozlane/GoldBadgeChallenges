@@ -5,3 +5,6 @@ C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\ob
 C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\obj\Debug\Challenge2_Console.csproj.CoreCompileInputs.cache
 C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\obj\Debug\Challenge2_Console.exe
 C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\obj\Debug\Challenge2_Console.pdb
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\bin\Debug\Challenge2_Repository.dll
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\bin\Debug\Challenge2_Repository.pdb
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge2_Console\obj\Debug\Challenge2_Console.csproj.CopyComplete
