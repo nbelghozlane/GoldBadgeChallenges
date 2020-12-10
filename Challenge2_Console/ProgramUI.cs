@@ -62,7 +62,7 @@ namespace Challenge2_Console
         private void ViewAllClaims()
         {
             /* Drew's source:
-             * Console.WriteLine($"|{"Left",-7}|{"Right",7}|{"FarRight",14}|");
+             Console.WriteLine($"|{"Left",-7}|{"Right",7}|{"FarRight",14}|");
 
             const int FieldWidthRightAligned = 30;
             Console.WriteLine($"{Math.PI,FieldWidthRightAligned} - default formatting of the pi number");
@@ -98,37 +98,29 @@ namespace Challenge2_Console
             Console.WriteLine("Enter the claim dollar amount:");
             newClaim.ClaimAmount = Console.ReadLine();
 
-            Console.WriteLine("Enter the date of the incident:"); //include a specific date format month, day , year etc.
-            newClaim.DateOfIncident = Console.ReadLine();
+            Console.WriteLine("Enter the date of the incident (ex: 12/09/2020; month/day/year):"); //include a specific date format month, day , year etc.
+            DateTime inputIncidentDate = DateTime.Parse(Console.ReadLine());
+            newClaim.DateOfIncident = inputIncidentDate;
 
-            Console.WriteLine("Enter the date of the claim:");
-            newClaim.DateOfClaim = Console.ReadLine();
+            Console.WriteLine("Enter the date of the claim (ex: 12/09/2020; month/day/year):");
+            DateTime inputClaimDate = DateTime.Parse(Console.ReadLine());
+            newClaim.DateOfClaim = inputClaimDate;
 
-            Console.WriteLine("Is this claim valid? (Claim is only valid if it is made 30 days or less after the incident took place.)"); //Hit enter to determine if this claim is valid or not.
+            TimeSpan TimeBetweenIncidentAndClaim = new TimeSpan();
+            TimeBetweenIncidentAndClaim = newClaim.DateOfClaim - newClaim.DateOfIncident;
+            //Console.WriteLine(TimeBetweenIncidentAndClaim.Days);
+            //Console.ReadLine();
 
-            /*DateTime incidentDate = new DateTime();
-            newClaim.DateOfIncident = incidentDate.ToString("yyyy,MM,dd");
-            Console.ReadLine();
-
-            DateTime claimDate = new DateTime();
-            newClaim.DateOfClaim = claimDate.ToString("yyyy,MM,dd");
-            Console.ReadLine();
-
-            TimeSpan TimeBetweenIncidentAndClaim = claimDate - incidentDate;
-            Console.WriteLine(TimeBetweenIncidentAndClaim.TotalDays);
-            Console.ReadLine();
-
-
-            if (TimeBetweenIncidentAndClaim > 30d)
+            if (TimeBetweenIncidentAndClaim.Days > 30)
             {
-                return false;
-                Console.WriteLine("This claim is invalid.")
+                Console.WriteLine("This claim is invalid.");
             }
-            else if (timeSpan <= 30days)
+            else if (TimeBetweenIncidentAndClaim.Days <= 30)
             {
-                return true;
-                Console.WriteLine("The claim is valid.")
-            }*/      
+                Console.WriteLine("The claim is valid.");
+            }
+
+            _claimRepo.CreateNewClaim(newClaim);
             
         }
     }

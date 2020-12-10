@@ -18,13 +18,13 @@ namespace Challenge2_Repository
         public ClaimType ClaimType { get; set; }
         public string Description { get; set; }
         public string ClaimAmount { get; set; }
-        public string DateOfIncident { get; set; }
-        public string DateOfClaim { get; set; }
+        public DateTime DateOfIncident { get; set; }
+        public DateTime DateOfClaim { get; set; }
         public bool IsValid { get; set; } // calculate with TimeSpan
 
         public ClaimClass() { }
 
-        public ClaimClass(string claimID, ClaimType claimType, string description, string claimAmount, string dateOfIncident, string dateOfClaim, bool isValid)
+        public ClaimClass(string claimID, ClaimType claimType, string description, string claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, bool isValid)
         {
             ClaimID = claimID;
             ClaimType = claimType;
