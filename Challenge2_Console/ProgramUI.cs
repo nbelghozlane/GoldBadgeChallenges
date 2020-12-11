@@ -13,6 +13,7 @@ namespace Challenge2_Console
 
         public void Run()
         {
+            SeedClaimList();
             Menu();
         }
 
@@ -61,13 +62,21 @@ namespace Challenge2_Console
 
         private void ViewAllClaims()
         {
-            /* Drew's source:
-             Console.WriteLine($"|{"Left",-7}|{"Right",7}|{"FarRight",14}|");
+            Console.Clear();
 
-            const int FieldWidthRightAligned = 30;
-            Console.WriteLine($"{Math.PI,FieldWidthRightAligned} - default formatting of the pi number");
-            Console.WriteLine($"{Math.PI,FieldWidthRightAligned:F3} - display only three decimal digits of the pi number");
-            Console.WriteLine($"{Math.PI,FieldWidthRightAligned:F3} - display only three decimal digits of the pi number");*/
+            List<ClaimClass> listOfClaims = _claimRepo.ViewAllClaims();
+
+            string ClaimsTable = string.Format("{0,-15} {1,-15} {2,-15} {3,-15} {4,-25} {5,-20} {6,-15}\n", 
+                "Claim ID", "Claim Type", "Description", "Amount", "Date Of Incident", "Date Of Claim", "Is Valid");
+            Console.WriteLine(ClaimsTable);
+
+            foreach (ClaimClass claim in listOfClaims)
+            {
+                string ClaimsOutput = string.Format("{0,-15} {1,-15} {2,-15} {3,-15} {4,-25} {5,-20} {6,-15}", claim.ClaimID, claim.ClaimType, claim.Description, claim.ClaimAmount,
+                    claim.DateOfIncident, claim.DateOfClaim, claim.IsValid);
+                Console.WriteLine(ClaimsOutput);
+            }
+
         }
 
         private void WorkOnNextClaim()
@@ -98,7 +107,7 @@ namespace Challenge2_Console
             Console.WriteLine("Enter the claim dollar amount:");
             newClaim.ClaimAmount = Console.ReadLine();
 
-            Console.WriteLine("Enter the date of the incident (ex: 12/09/2020; month/day/year):"); //include a specific date format month, day , year etc.
+            Console.WriteLine("Enter the date of the incident (ex: 12/09/2020; month/day/year):"); 
             DateTime inputIncidentDate = DateTime.Parse(Console.ReadLine());
             newClaim.DateOfIncident = inputIncidentDate;
 
@@ -123,5 +132,16 @@ namespace Challenge2_Console
             _claimRepo.CreateNewClaim(newClaim);
             
         }
+
+        private void SeedClaimList()
+        {
+
+            DateTime claim1ClaimDate = new DateTime(2020, 12, 10);
+            DateTime claim1IncidentDate = new DateTime(2020, 12, 01);
+
+            ClaimClass claim1 = new ClaimClass("1", ClaimType.Car, "Car was rear-ended.", "$1000.00", claim1IncidentDate, claim1ClaimDate, true);
+
+            _claimRepo.CreateNewClaim(claim1);
+        } 
     }
 }
