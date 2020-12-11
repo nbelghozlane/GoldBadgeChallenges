@@ -8,22 +8,33 @@ namespace Challenge2_Repository
 {
     public class ClaimRepository
     {
-        private List<ClaimClass> _listOfClaims = new List<ClaimClass>();
+        //private List<ClaimClass> _listOfClaims = new List<ClaimClass>();
+        private Queue<ClaimClass> _claimQueues = new Queue<ClaimClass>(); 
 
         //Create
         public void CreateNewClaim(ClaimClass claim)
         {
-            _listOfClaims.Add(claim);
+            _claimQueues.Enqueue(claim);
+            //_listOfClaims.Add(claim);
         }
 
         //Read
-        public List<ClaimClass> ViewAllClaims()
+        public Queue<ClaimClass> ViewAllClaims()
         {
-            return _listOfClaims;
+            return _claimQueues;
+           //return _listOfClaims;
         }
 
         //Update
 
         //Delete
+
+        //ViewNextClaim
+        public ClaimClass ViewFirstItem()
+        {
+            return _claimQueues.Peek();
+        }
+
+      
     }
 }
