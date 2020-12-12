@@ -28,13 +28,15 @@ namespace Challenge2_Repository
         //Update
 
         //Delete
+        public void RemoveFirstItemFromQueue()
+        {
+            _claimQueues.Dequeue();
+        }
 
         //ViewNextClaim
         public ClaimClass ViewFirstItem()
         {
             return _claimQueues.Peek();
         }
-
-      
     }
 }

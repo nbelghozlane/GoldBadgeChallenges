@@ -56,7 +56,6 @@ namespace Challenge2_Console
                 Console.WriteLine("Please press any key to continue.");
                 Console.ReadKey();
                 Console.Clear();
-
             }
         }
 
@@ -83,6 +82,7 @@ namespace Challenge2_Console
             Console.Clear();
 
             ClaimClass ViewFirstClaim = _claimRepo.ViewFirstItem();
+
             Console.WriteLine($"Claim ID: { ViewFirstClaim.ClaimID}\n" +
                 $"Claim Type: {ViewFirstClaim.ClaimType}\n" +
                 $"Description: {ViewFirstClaim.Description}\n" +
@@ -91,7 +91,20 @@ namespace Challenge2_Console
                 $"Date Of Claim: {ViewFirstClaim.DateOfClaim}\n" +
                 $"Is Valid: {ViewFirstClaim.IsValid}\n" +
                 $" ");
-              
+            Console.WriteLine("Do you want to deal with this claim now? (y/n)");
+            string userInput = Console.ReadLine().ToLower();
+
+            switch (userInput)
+            {
+                case "y":
+                    _claimRepo.RemoveFirstItemFromQueue();
+                    Console.WriteLine("This claim has been removed from the top of the queue.");
+                    break;
+                case "n":
+                    Console.Clear();
+                    Menu();
+                    break;
+            }   
         }
 
         private void CreateNewClaim()
@@ -133,10 +146,12 @@ namespace Challenge2_Console
             if (TimeBetweenIncidentAndClaim.Days > 30)
             {
                 Console.WriteLine("This claim is invalid.");
+                newClaim.IsValid = false;
             }
             else if (TimeBetweenIncidentAndClaim.Days <= 30)
             {
                 Console.WriteLine("The claim is valid.");
+                newClaim.IsValid = true;
             }
 
             _claimRepo.CreateNewClaim(newClaim);
