@@ -41,7 +41,6 @@ namespace GoldBadgeChallenges
                     case "2":
                         ViewAllMenuItems();
                         break;
-                        //ViewMenuItemByMealNumber?
                     case "3":
                         DeleteMenuItem();
                         break;
