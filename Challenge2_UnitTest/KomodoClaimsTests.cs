@@ -15,9 +15,26 @@ namespace Challenge2_UnitTest
             ClaimRepository claimRepo = new ClaimRepository();
 
             claimRepo.CreateNewClaim(claim);
-            //ClaimClass claimsFromClaimQueue = claimRepo.ViewAllClaims();
+            ClaimClass claimsFromClaimQueue = claimRepo.GetClaimByClaimID("1");
 
-            //Assert.IsNotNull(claimsFromClaimQueue);
+            Assert.IsNotNull(claimsFromClaimQueue);
         }
+
+        [TestMethod]
+        public void DeleteFirstQueueItem_ShouldReturnTrue()
+        {
+            //Arrange
+            ClaimClass claim = new ClaimClass();
+            ClaimRepository claimRepo = new ClaimRepository();
+
+            //Act
+            claimRepo.CreateNewClaim(claim);
+            bool deleteFirstQueueItem = claimRepo.RemoveFirstItemFromQueue();
+
+            //Assert
+            Assert.IsTrue(deleteFirstQueueItem);
+        }
+
     }
+
 }

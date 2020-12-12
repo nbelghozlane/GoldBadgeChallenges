@@ -8,7 +8,6 @@ namespace Challenge2_Repository
 {
     public class ClaimRepository
     {
-        //private List<ClaimClass> _listOfClaims = new List<ClaimClass>();
         private Queue<ClaimClass> _claimQueues = new Queue<ClaimClass>(); 
 
         //Create
@@ -28,9 +27,20 @@ namespace Challenge2_Repository
         //Update
 
         //Delete
-        public void RemoveFirstItemFromQueue()
+        public bool RemoveFirstItemFromQueue()
         {
+            int initialCount = _claimQueues.Count;
+            
             _claimQueues.Dequeue();
+
+            if (initialCount > _claimQueues.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //ViewNextClaim
@@ -38,5 +48,19 @@ namespace Challenge2_Repository
         {
             return _claimQueues.Peek();
         }
+
+        public ClaimClass GetClaimByClaimID(string claimID)
+        {
+            foreach (ClaimClass claim in _claimQueues)
+            {
+                if (claim.ClaimID == claimID)
+                {
+                    return claim;
+                }
+            }
+            return null;
+        }
+
     }
 }
+

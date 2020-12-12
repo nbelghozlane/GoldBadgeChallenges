@@ -1,0 +1,10 @@
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\bin\Debug\Challenge3_Console.exe.config
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\bin\Debug\Challenge3_Console.exe
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\bin\Debug\Challenge3_Console.pdb
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\bin\Debug\Challenge3_Repository.dll
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\bin\Debug\Challenge3_Repository.pdb
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\obj\Debug\Challenge3_Console.csprojAssemblyReference.cache
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\obj\Debug\Challenge3_Console.csproj.CoreCompileInputs.cache
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\obj\Debug\Challenge3_Console.csproj.CopyComplete
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\obj\Debug\Challenge3_Console.exe
+C:\ElevenFifty Projects\DotNetProjects\GoldBadgeChallenges\Challenge3_Console\obj\Debug\Challenge3_Console.pdb

@@ -23,20 +23,20 @@ namespace Challenge1_UnitTest
             Assert.IsNotNull(menuItemsFromMenu);
         }
 
-        /*[TestMethod]
-        public void DeleteMenuItems_ShouldReturnTrue(string mealName)
+        [TestMethod]
+        public void DeleteMenuItems_ShouldReturnTrue()
         {
             //Arrange
             MenuClass menuItems = new MenuClass();
-            menuItems.MealName = "Cheeseburger";
+            menuItems.MealName = "Burger";
             MenuRepositoryClass menuRepo = new MenuRepositoryClass();
 
             //Act
-            bool deleteMenuItem = menuRepo.DeleteMenuItems("Cheeseburger");
+            menuRepo.CreateMenuItems(menuItems);
+            bool deleteMenuItem = menuRepo.DeleteMenuItems("Burger");
 
             //Assert
             Assert.IsTrue(deleteMenuItem);
-
-        }*/
+        }
     }
 }
