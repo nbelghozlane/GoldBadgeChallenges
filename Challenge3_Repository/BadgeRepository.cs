@@ -26,10 +26,15 @@ namespace Challenge3_Repository
 
         //Update doors on existing badge
 
+        //Add doors
 
+        //Delete doors from existing badge
 
+        /*public bool RemoveDoorAccess()
+        {
 
+        }*/
 
-        //Delete all doors from exisiting badge
+        //GetBadgeById
     }
 }

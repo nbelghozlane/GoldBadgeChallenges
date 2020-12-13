@@ -62,24 +62,42 @@ namespace Challenge3_Console
         {
             Console.Clear();
             BadgeClass newBadge = new BadgeClass();
-            List<string> listOfDoors = new List<string>();
 
             Console.WriteLine("What is the Badge ID Number?");
             newBadge.BadgeID = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter a door that it needs access to:");
-            listOfDoors.Add(Console.ReadLine());
-            newBadge.DoorNames = listOfDoors;
+            bool runDoorAccess = true;
+            while (runDoorAccess)
+            {
+                Console.WriteLine("Enter a door that it needs access to:");
+                string door = Console.ReadLine();
+                newBadge.DoorNames.Add(door);
 
-            Console.WriteLine("Any other doors you want to add? (y/n)");
+                Console.WriteLine("Any other doors you want to add? (y/n)");
+                string userInput = Console.ReadLine().ToLower();
 
-
-            _badgeRepository.CreateNewBadge(newBadge);
+                switch (userInput)
+                {
+                    case "y":
+                        runDoorAccess = true;
+                        break;
+                    case "n":
+                        runDoorAccess = false;
+                        Console.Clear();
+                        _badgeRepository.CreateNewBadge(newBadge);
+                        Menu();
+                        break;
+                }
+            }
         }
 
         private void EditBadge()
         {
+            Console.WriteLine("What is the ID number of the badge you'd like to update?");
 
+            Console.WriteLine("What would you like to do?\n" +
+                "1. Remove A Door\n" +
+                "2. Add A Door");
         }
 
         private void ViewAllBadges()
@@ -87,17 +105,25 @@ namespace Challenge3_Console
             Console.Clear();
             Dictionary<int, List<string>> listOfBadges = _badgeRepository.ViewAllBadgesAndDoorAccess();
 
-            foreach (var dictionary in listOfBadges)
+            foreach (KeyValuePair<int, List<string>> dictionary in listOfBadges)
             {
-                List<string> List = new List<string>();
-                Console.WriteLine($"Badge ID #: {dictionary.Key}\n" +
-                    $"Door Access: {dictionary.Value[0]}");
+                //List<string> List = new List<string>();
+
+                Console.WriteLine($"Badge ID #: {dictionary.Key}");
+
+                foreach (string door in dictionary.Value)
+                {
+                    Console.WriteLine($"Door Access: {door}");
+                }
             }
         }
 
         private void SeedBadgeList()
         {
+            BadgeClass badge1 = new BadgeClass(1234, new List<string>() { "A1", "A2" });
 
+            _badgeRepository.CreateNewBadge(badge1);
         }
     }
 }
+
