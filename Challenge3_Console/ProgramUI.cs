@@ -9,7 +9,7 @@ namespace Challenge3_Console
 {
     class ProgramUI
     {
-        private BadgeRepository badgeRepository = new BadgeRepository();
+        private BadgeRepository _badgeRepository = new BadgeRepository();
 
         public void Run()
         {
@@ -61,7 +61,20 @@ namespace Challenge3_Console
         private void CreateNewBadge()
         {
             Console.Clear();
-            //BadgeClass newBadge = new BadgeClass();
+            BadgeClass newBadge = new BadgeClass();
+            List<string> listOfDoors = new List<string>();
+
+            Console.WriteLine("What is the Badge ID Number?");
+            newBadge.BadgeID = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter a door that it needs access to:");
+            listOfDoors.Add(Console.ReadLine());
+            newBadge.DoorNames = listOfDoors;
+
+            Console.WriteLine("Any other doors you want to add? (y/n)");
+
+
+            _badgeRepository.CreateNewBadge(newBadge);
         }
 
         private void EditBadge()
@@ -71,7 +84,15 @@ namespace Challenge3_Console
 
         private void ViewAllBadges()
         {
+            Console.Clear();
+            Dictionary<int, List<string>> listOfBadges = _badgeRepository.ViewAllBadgesAndDoorAccess();
 
+            foreach (var dictionary in listOfBadges)
+            {
+                List<string> List = new List<string>();
+                Console.WriteLine($"Badge ID #: {dictionary.Key}\n" +
+                    $"Door Access: {dictionary.Value[0]}");
+            }
         }
 
         private void SeedBadgeList()
