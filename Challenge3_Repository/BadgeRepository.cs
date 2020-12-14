@@ -25,33 +25,22 @@ namespace Challenge3_Repository
         }
 
         //Update doors on existing badge
-
-        //Add doors
-
-        //Delete doors from existing badge
-
-        /*public bool RemoveDoorAccess()
+        public void UpdateBadge(int badge, List<string> doors)
         {
-            _badgeDictionary.Remove(badge.DoorNames);
+            _badgeDictionary[badge] = doors;
         }
-        */
+        
+        //Add doors (in UI)
 
-        //GetBadgeById
-       /* public Dictionary<int, List<string>> GetBadgeByID(int badgeID)
+        //Delete doors from existing badge (in UI)
+
+        public void RemoveDoorAccess(int badge)
         {
-            foreach (Dictionary<int, List<string>> badge in _badgeDictionary)
-            {
-                if(badge.Key == badgeID)
-                {
-                    return badge;
-                }
-            }
+            _badgeDictionary.Remove(badge);
+        }
 
-            return null;
-        }*/
-
-
+       
 
     }
-}
+}    
 

@@ -94,11 +94,48 @@ namespace Challenge3_Console
         private void EditBadge()
         {
             Console.Clear();
+            ViewAllBadges();
+            
+
             Console.WriteLine("What is the ID number of the badge you'd like to update?");
+            string idString = Console.ReadLine();
+            int idInt = int.Parse(idString);
 
             Console.WriteLine("What would you like to do?\n" +
                 "1. Remove A Door\n" +
                 "2. Add A Door");
+            string input = Console.ReadLine();
+            
+            switch (input)
+            {
+                case "1":
+
+                    List<string> RemoveDoors = new List<string>();   //Removes all doors
+                    RemoveDoor(idInt, RemoveDoors);
+                    break;
+
+                case "2":
+
+                    List<string> AddDoors = new List<string>();  //Adds door but deletes existing doors
+                    AddDoor(idInt, AddDoors);
+                    break;
+            }      
+        }
+
+        private void AddDoor(int badge, List<string> doors)
+        {
+            Console.WriteLine("Enter a door you want to add:");
+            string input = Console.ReadLine();
+            doors.Add(input);
+            _badgeRepository.UpdateBadge(badge, doors);
+        }
+
+        private void RemoveDoor(int badge, List<string> doors)
+        {
+            Console.WriteLine("Enter a door you want to remove:");
+            string input = Console.ReadLine();
+            doors.Remove(input);
+            _badgeRepository.UpdateBadge(badge, doors);
         }
 
         private void ViewAllBadges()
