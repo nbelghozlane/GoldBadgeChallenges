@@ -93,6 +93,7 @@ namespace Challenge3_Console
 
         private void EditBadge()
         {
+            Console.Clear();
             Console.WriteLine("What is the ID number of the badge you'd like to update?");
 
             Console.WriteLine("What would you like to do?\n" +
@@ -109,7 +110,7 @@ namespace Challenge3_Console
             {
                 //List<string> List = new List<string>();
 
-                Console.WriteLine($"Badge ID #: {dictionary.Key}");
+                Console.WriteLine($"Badge ID #: {dictionary.Key}");     //fix formatting
 
                 foreach (string door in dictionary.Value)
                 {
@@ -120,9 +121,14 @@ namespace Challenge3_Console
 
         private void SeedBadgeList()
         {
-            BadgeClass badge1 = new BadgeClass(1234, new List<string>() { "A1", "A2" });
+            BadgeClass badge1 = new BadgeClass(1234, new List<string>() {"A1", "A2"});
+            BadgeClass badge2 = new BadgeClass(3456, new List<string>() {"A1", "A3", "C4"});
+            BadgeClass badge3 = new BadgeClass(4567, new List<string>() {"B1"});
 
             _badgeRepository.CreateNewBadge(badge1);
+            _badgeRepository.CreateNewBadge(badge2);
+            _badgeRepository.CreateNewBadge(badge3);  
+
         }
     }
 }

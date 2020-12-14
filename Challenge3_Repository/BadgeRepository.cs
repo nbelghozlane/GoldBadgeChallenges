@@ -32,9 +32,26 @@ namespace Challenge3_Repository
 
         /*public bool RemoveDoorAccess()
         {
-
-        }*/
+            _badgeDictionary.Remove(badge.DoorNames);
+        }
+        */
 
         //GetBadgeById
+       /* public Dictionary<int, List<string>> GetBadgeByID(int badgeID)
+        {
+            foreach (Dictionary<int, List<string>> badge in _badgeDictionary)
+            {
+                if(badge.Key == badgeID)
+                {
+                    return badge;
+                }
+            }
+
+            return null;
+        }*/
+
+
+
     }
 }
+
