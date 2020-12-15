@@ -38,5 +38,17 @@ namespace Challenge1_UnitTest
             //Assert
             Assert.IsTrue(deleteMenuItem);
         }
+
+        [TestMethod]
+        public void GetMenuList()
+        {
+           
+        }
     }
 }
+
+/*  //Read - List of all menu items
+public List<MenuClass> GetMenuList()
+{
+    return _menuItems;
+}*/

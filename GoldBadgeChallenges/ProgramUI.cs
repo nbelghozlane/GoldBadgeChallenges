@@ -10,7 +10,6 @@ namespace GoldBadgeChallenges
     class ProgramUI
     {
         private MenuRepositoryClass _menuRepo = new MenuRepositoryClass();
-        //private MenuRepositoryClass _menuRepo = new MenuRepositoryClass
         public void Run()
         {
             SeedMenuList();

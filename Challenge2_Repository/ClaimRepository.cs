@@ -14,14 +14,12 @@ namespace Challenge2_Repository
         public void CreateNewClaim(ClaimClass claim)
         {
             _claimQueues.Enqueue(claim);
-            //_listOfClaims.Add(claim);
         }
 
         //Read
         public Queue<ClaimClass> ViewAllClaims()
         {
             return _claimQueues;
-           //return _listOfClaims;
         }
 
         //Update

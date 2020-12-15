@@ -94,9 +94,8 @@ namespace Challenge3_Console
         private void EditBadge()
         {
             Console.Clear();
-            ViewAllBadges();
+            //ViewAllBadges();
             
-
             Console.WriteLine("What is the ID number of the badge you'd like to update?");
             string idString = Console.ReadLine();
             int idInt = int.Parse(idString);
@@ -109,14 +108,32 @@ namespace Challenge3_Console
             switch (input)
             {
                 case "1":
-
-                    List<string> RemoveDoors = new List<string>();   //Removes all doors
+                    List<string> RemoveDoors = new List<string>();   
+                    Dictionary<int, List<string>> newDictionary = new Dictionary<int, List<string>>();
+                    newDictionary = _badgeRepository.ViewAllBadgesAndDoorAccess();
+                    
+                    foreach( KeyValuePair<int, List<string>> dictionary in newDictionary)
+                    {
+                        if (dictionary.Key == idInt)
+                        {
+                            RemoveDoors = dictionary.Value;
+                        }
+                    }
                     RemoveDoor(idInt, RemoveDoors);
                     break;
 
                 case "2":
+                    List<string> AddDoors = new List<string>();  
+                    Dictionary<int, List<string>> newDictionary2 = new Dictionary<int, List<string>>();
+                    newDictionary = _badgeRepository.ViewAllBadgesAndDoorAccess();
 
-                    List<string> AddDoors = new List<string>();  //Adds door but deletes existing doors
+                    foreach (KeyValuePair<int, List<string>> dictionary in newDictionary)
+                    {
+                        if (dictionary.Key == idInt)
+                        {
+                            AddDoors = dictionary.Value;
+                        }
+                    }
                     AddDoor(idInt, AddDoors);
                     break;
             }      
@@ -142,7 +159,9 @@ namespace Challenge3_Console
         {
             Console.Clear();
             Dictionary<int, List<string>> listOfBadges = _badgeRepository.ViewAllBadgesAndDoorAccess();
-
+           
+            //Console.WriteLine("Badge ID     Door Access" );
+            
             foreach (KeyValuePair<int, List<string>> dictionary in listOfBadges)
             {
                 //List<string> List = new List<string>();
@@ -152,6 +171,7 @@ namespace Challenge3_Console
                 foreach (string door in dictionary.Value)
                 {
                     Console.WriteLine($"Door Access: {door}");
+                    
                 }
             }
         }

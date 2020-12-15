@@ -29,7 +29,7 @@ namespace Challenge3_Repository
         {
             _badgeDictionary[badge] = doors;
         }
-        
+
         //Add doors (in UI)
 
         //Delete doors from existing badge (in UI)

@@ -9,10 +9,10 @@ namespace Challenge1_Repository
     public class MenuClass
     {
         //POCO
-        public string MealNumber { get; set; } //Do an enum?
+        public string MealNumber { get; set; } 
         public string MealName { get; set; }
         public string MealDescription { get; set; }
-        public string Ingredients { get; set; }//make a list?
+        public string Ingredients { get; set; }
         public double Price { get; set; }
 
         public MenuClass() { }
