@@ -9,8 +9,6 @@ namespace Challenge3_Repository
     public class BadgeRepository
     {
         private Dictionary<int, List<string>> _badgeDictionary = new Dictionary<int, List<string>>();
-        //private Dictionary<int, string> _badgeDictionary = new Dictionary<int, string>();
-        //key,value
 
         //Create new badge
         public void CreateNewBadge(BadgeClass badge)
@@ -25,22 +23,21 @@ namespace Challenge3_Repository
         }
 
         //Update doors on existing badge
-        public void UpdateBadge(int badge, List<string> doors)
+        public bool UpdateBadge(int badge, List<string> doors)
         {
             _badgeDictionary[badge] = doors;
+            return true;
         }
 
         //Add doors (in UI)
 
         //Delete doors from existing badge (in UI)
 
-        public void RemoveBadge(int badge)
+        public bool RemoveBadge(int badge)
         {
             _badgeDictionary.Remove(badge);
-        }
-
-       
-
+            return true;
+        } 
     }
 }    
 
