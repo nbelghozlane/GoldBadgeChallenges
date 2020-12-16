@@ -1,6 +1,7 @@
 ﻿using Challenge2_Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace Challenge2_UnitTest
 {
@@ -10,13 +11,16 @@ namespace Challenge2_UnitTest
         [TestMethod]
         public void CreateNewClaim_ShouldNotGetNull()
         {
-            ClaimClass claim = new ClaimClass();
-            claim.ClaimID = "1";
+            //Arrange
             ClaimRepository claimRepo = new ClaimRepository();
+            DateTime claimIncidentDate = new DateTime(2020, 12, 10);
+            ClaimClass addedClaim = new ClaimClass("123", ClaimType.Car, "Rear-ended", "$1000", claimIncidentDate, claimIncidentDate, true);
+            
+            //Act
+            claimRepo.CreateNewClaim(addedClaim);
+            Queue<ClaimClass> claimsFromClaimQueue = claimRepo.ViewAllClaims();
 
-            claimRepo.CreateNewClaim(claim);
-            ClaimClass claimsFromClaimQueue = claimRepo.GetClaimByClaimID("1");
-
+            //Assert
             Assert.IsNotNull(claimsFromClaimQueue);
         }
 
@@ -33,6 +37,37 @@ namespace Challenge2_UnitTest
 
             //Assert
             Assert.IsTrue(deleteFirstQueueItem);
+        }
+
+        //ViewAllClaims
+        [TestMethod]
+        public void ViewAllClaims_IsNotNull()
+        {
+            //Arrange
+            ClaimRepository claimRepo = new ClaimRepository();
+
+            //Act
+            Queue<ClaimClass> claimsQueue = claimRepo.ViewAllClaims();
+
+            //Assert
+            Assert.IsNotNull(claimsQueue);
+        }
+
+        //ViewFirstItem
+        [TestMethod]
+        public void ViewFirstItem()
+        {
+            //Arrange
+            ClaimRepository claimRepo = new ClaimRepository();
+            DateTime claimIncidentDate = new DateTime(2020, 12, 10);
+            ClaimClass addedClaim = new ClaimClass("123",ClaimType.Car, "Rear-ended","$1000", claimIncidentDate, claimIncidentDate, true);
+            claimRepo.CreateNewClaim(addedClaim);
+
+            //Act
+            ClaimClass viewFirstItem = claimRepo.ViewFirstItem();
+
+            //Assert
+            Assert.AreEqual(addedClaim, viewFirstItem);
         }
 
     }

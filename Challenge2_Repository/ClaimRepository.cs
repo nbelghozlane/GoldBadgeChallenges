@@ -46,19 +46,6 @@ namespace Challenge2_Repository
         {
             return _claimQueues.Peek();
         }
-
-        public ClaimClass GetClaimByClaimID(string claimID)
-        {
-            foreach (ClaimClass claim in _claimQueues)
-            {
-                if (claim.ClaimID == claimID)
-                {
-                    return claim;
-                }
-            }
-            return null;
-        }
-
     }
 }
 
