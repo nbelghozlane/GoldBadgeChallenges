@@ -22,8 +22,6 @@ namespace Challenge2_Repository
             return _claimQueues;
         }
 
-        //Update
-
         //Delete
         public bool RemoveFirstItemFromQueue()
         {

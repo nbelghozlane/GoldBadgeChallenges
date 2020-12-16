@@ -44,6 +44,7 @@ namespace GoldBadgeChallenges
                         DeleteMenuItem();
                         break;
                     case "4":
+                        Console.Clear();
                         Console.WriteLine("Thank you for using Komodo Cafe Menu Application! Goodbye!");
                         keepRunning = false;
                         break;

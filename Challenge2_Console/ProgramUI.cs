@@ -65,13 +65,13 @@ namespace Challenge2_Console
 
             Queue<ClaimClass> ClaimQueues = _claimRepo.ViewAllClaims();
 
-            string ClaimsTable = string.Format("{0,-15} {1,-15} {2,-15} {3,-15} {4,-25} {5,-20} {6,-15}\n", 
+            string ClaimsTable = string.Format("{0,-15} {1,-20} {2,-15} {3,-10} {4,-25} {5,-20} {6,-8}\n", 
                 "Claim ID", "Claim Type", "Description", "Amount", "Date Of Incident", "Date Of Claim", "Is Valid");
             Console.WriteLine(ClaimsTable);
 
             foreach (ClaimClass claim in ClaimQueues)
             {
-                string ClaimsOutput = string.Format("{0,-15} {1,-15} {2,-15} {3,-15} {4,-25} {5,-20} {6,-15}", claim.ClaimID, claim.ClaimType, claim.Description, claim.ClaimAmount,
+                string ClaimsOutput = string.Format("{0,-15} {1,-15} {2,-15} {3,-15} {4,-25} {5,-20} {6,-17}", claim.ClaimID, claim.ClaimType, claim.Description, claim.ClaimAmount,
                     claim.DateOfIncident, claim.DateOfClaim, claim.IsValid);
                 Console.WriteLine(ClaimsOutput);
             }
@@ -140,8 +140,6 @@ namespace Challenge2_Console
 
             TimeSpan TimeBetweenIncidentAndClaim = new TimeSpan();
             TimeBetweenIncidentAndClaim = newClaim.DateOfClaim - newClaim.DateOfIncident;
-            //Console.WriteLine(TimeBetweenIncidentAndClaim.Days);
-            //Console.ReadLine();
 
             if (TimeBetweenIncidentAndClaim.Days > 30)
             {
@@ -162,17 +160,16 @@ namespace Challenge2_Console
         {
 
             DateTime claim1ClaimDate = new DateTime(2020, 12, 10);
-            //DateTime dateOnly1 = claim1ClaimDate.Date;  Trying to get only date to show up on list
-            //Console.WriteLine(dateOnly1.ToString("d"));
             DateTime claim1IncidentDate = new DateTime(2020, 12, 01);
-            //DateTime dateOnly2 = claim1IncidentDate.Date;
+            
             DateTime claim2ClaimDate = new DateTime(2020, 12, 11);
             DateTime claim2IncidentDate = new DateTime(2020, 11, 28);
+
             DateTime claim3ClaimDate = new DateTime(2020, 12, 09);
             DateTime claim3IncidentDate = new DateTime(2020, 11, 05);
 
             ClaimClass claim1 = new ClaimClass("1", ClaimType.Car, "Car rear-ended.", "$1000.00", claim1IncidentDate, claim1ClaimDate, true);
-            ClaimClass claim2 = new ClaimClass("2", ClaimType.Home, "Hail damaged roof.", "$7000.00", claim2IncidentDate, claim2ClaimDate, true);
+            ClaimClass claim2 = new ClaimClass("2", ClaimType.Home, "Hail damage.", "$7000.00", claim2IncidentDate, claim2ClaimDate, true);
             ClaimClass claim3 = new ClaimClass("3", ClaimType.Theft, "TV stolen.", "$850.00", claim3IncidentDate, claim3ClaimDate, false);
 
             _claimRepo.CreateNewClaim(claim1);

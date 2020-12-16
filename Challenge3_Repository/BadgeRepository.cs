@@ -34,7 +34,7 @@ namespace Challenge3_Repository
 
         //Delete doors from existing badge (in UI)
 
-        public void RemoveDoorAccess(int badge)
+        public void RemoveBadge(int badge)
         {
             _badgeDictionary.Remove(badge);
         }

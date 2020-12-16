@@ -15,11 +15,13 @@ namespace Challenge1_Repository
         {
             _menuItems.Add(menuItem);
         }
+
         //Read - List of all menu items
         public List<MenuClass> GetMenuList()
         {
             return _menuItems;
         }
+
         //Delete menu items
         public bool DeleteMenuItems(string mealName)
         {
@@ -42,7 +44,7 @@ namespace Challenge1_Repository
             }
         }
 
-        //Helper
+        //Get menu items by meal name
         public MenuClass GetMenuItemsByMealName(string mealName)
         {
             foreach (MenuClass menuItem in _menuItems)

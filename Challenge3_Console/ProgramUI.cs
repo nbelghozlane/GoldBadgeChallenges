@@ -94,7 +94,6 @@ namespace Challenge3_Console
         private void EditBadge()
         {
             Console.Clear();
-            //ViewAllBadges();
             
             Console.WriteLine("What is the ID number of the badge you'd like to update?");
             string idString = Console.ReadLine();
