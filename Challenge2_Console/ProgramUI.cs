@@ -45,6 +45,7 @@ namespace Challenge2_Console
                         CreateNewClaim();
                         break;
                     case "4":
+                        Console.Clear();
                         Console.WriteLine("Thank you for using the Komodo Claims Department Application! Goodbye!");
                         keepRunning = false;
                         break;

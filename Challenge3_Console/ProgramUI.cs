@@ -49,6 +49,7 @@ namespace Challenge3_Console
                         DeleteABadge();
                         break;
                     case "5":
+                        Console.Clear();
                         Console.WriteLine("Goodbye!");
                         keepRunning = false;
                         break;
