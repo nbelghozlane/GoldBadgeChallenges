@@ -28,7 +28,8 @@ namespace Challenge3_Console
                     "1. Create A Badge\n" +
                     "2. Edit A Badge\n" +
                     "3. View All Badges\n" +
-                    "4. Exit\n" +
+                    "4. Delete A Badge\n" +
+                    "5. Exit\n" +
                     " ");
 
                 string userInput = Console.ReadLine();
@@ -45,6 +46,9 @@ namespace Challenge3_Console
                         ViewAllBadges();
                         break;
                     case "4":
+                        DeleteABadge();
+                        break;
+                    case "5":
                         Console.WriteLine("Goodbye!");
                         keepRunning = false;
                         break;
@@ -158,28 +162,47 @@ namespace Challenge3_Console
         {
             Console.Clear();
             Dictionary<int, List<string>> listOfBadges = _badgeRepository.ViewAllBadgesAndDoorAccess();
-           
-            //Console.WriteLine("Badge ID     Door Access" );
-            
+
+            Console.WriteLine("Badge ID      Door Access" );
+
             foreach (KeyValuePair<int, List<string>> dictionary in listOfBadges)
             {
-                //List<string> List = new List<string>();
-
-                Console.WriteLine($"Badge ID #: {dictionary.Key}");     //fix formatting
+                Console.WriteLine($" \n" +
+                    $"{dictionary.Key}");
 
                 foreach (string door in dictionary.Value)
                 {
-                    Console.WriteLine($"Door Access: {door}");
-                    
+                    Console.WriteLine($"               {door}");
                 }
+            }
+        }
+
+        private void DeleteABadge()
+        {
+            ViewAllBadges();
+
+            Console.WriteLine(" \n" +
+                "Enter the ID of the badge you'd like to remove:");
+            string idString = Console.ReadLine();
+            int idInt = int.Parse(idString);
+
+            bool badgeWasDeleted = _badgeRepository.RemoveBadge(idInt);
+
+            if (badgeWasDeleted)
+            {
+                Console.WriteLine("The badge has been successfully deleted!");
+            }
+            else
+            {
+                Console.WriteLine("The badge could not be deleted.");
             }
         }
 
         private void SeedBadgeList()
         {
             BadgeClass badge1 = new BadgeClass(1234, new List<string>() {"A1", "A2"});
-            BadgeClass badge2 = new BadgeClass(3456, new List<string>() {"A1", "A3", "C4"});
-            BadgeClass badge3 = new BadgeClass(4567, new List<string>() {"B1"});
+            BadgeClass badge2 = new BadgeClass(3456, new List<string>() {"B1"});
+            BadgeClass badge3 = new BadgeClass(4567, new List<string>() { "A1", "A3", "C4" });
 
             _badgeRepository.CreateNewBadge(badge1);
             _badgeRepository.CreateNewBadge(badge2);
@@ -188,4 +211,5 @@ namespace Challenge3_Console
         }
     }
 }
+
 

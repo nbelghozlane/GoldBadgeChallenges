@@ -29,10 +29,7 @@ namespace Challenge3_Repository
             return true;
         }
 
-        //Add doors (in UI)
-
-        //Delete doors from existing badge (in UI)
-
+        //Remove badge
         public bool RemoveBadge(int badge)
         {
             _badgeDictionary.Remove(badge);
